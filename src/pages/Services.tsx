@@ -263,7 +263,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/Web_build.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/Web_build.png`}
               alt="Web Development"
               className="w-full h-full object-cover"
             />
@@ -286,7 +286,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/Content_writing.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/Content_writing.png`}
               alt="Content & Script Writing"
               className="w-full h-full object-cover"
             />
@@ -309,7 +309,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/Pre Production & Setup.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/Pre Production & Setup.png`}
               alt="Pre Production & Setup"
               className="w-full h-full object-cover"
             />
@@ -332,7 +332,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/Production and editing.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/Production and editing.png`}
               alt="Production & Editing"
               className="w-full h-full object-cover"
             />
@@ -355,7 +355,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/ad_campaign_and_launch.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/ad_campaign_and_launch.png`}
               alt="Ad Campaign Setup & Launch"
               className="w-full h-full object-cover"
             />
@@ -378,7 +378,7 @@ const Services: React.FC = () => {
             className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] rounded-xl overflow-hidden shadow-2xl mx-auto md:mx-0"
           >
             <img
-              src="/photos/Our Services Photos/Monitor Optimize and Scale.png"
+              src={`${import.meta.env.BASE_URL}photos/Our Services Photos/Monitor Optimize and Scale.png`}
               alt="Monitor, Optimize & Scale"
               className="w-full h-full object-cover"
             />
