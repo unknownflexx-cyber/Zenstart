@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-6">
               <motion.img
-                src="/photos/logo.png"
+                src={`${import.meta.env.BASE_URL}photos/logo.png`}
                 alt="Zen Logo"
                 className="w-24 h-24 sm:w-30 sm:h-30 lg:w-40 lg:h-40 rounded-lg object-contain"
                 whileHover={{ scale: 1.06, rotate: 2 }}
