@@ -7,6 +7,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
+  /* Disable overflow anchoring to prevent jumpy initial position when content loads */
+  overflow-anchor: none;
 }
 
 /* Enhanced smooth scrolling for all elements */

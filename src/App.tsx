@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
@@ -17,16 +17,8 @@ import CaseStudy from './pages/CaseStudy';
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   
-  // Disable browser's automatic scroll restoration so we control it
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-  }, []);
-
-  // Ensure we are at the top before paint on initial load and route changes
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.scrollTo(0, 0);
   }, [pathname]);
   
   return null;
@@ -34,7 +26,7 @@ const ScrollToTop = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <div className="min-h-screen bg-black text-white overflow-x-hidden dark">
         <Navbar />
