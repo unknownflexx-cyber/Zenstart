@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+/* Enhanced smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for specific containers */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+/* Custom smooth scroll for better performance */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth transitions for all scrollable elements */
+body, main, section, div[class*="overflow"] {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Spline viewer styles */
+spline-viewer {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-flow-reverse {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-flow 4s ease-in-out infinite;
+}
+
+.animate-gradient-flow-reverse {
+  background-size: 200% 200%;
+  animation: gradient-flow-reverse 4s ease-in-out infinite;
+}
+
+/* Enhanced glow effects for snake strokes */
+.snake-glow {
+  filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 16px currentColor) drop-shadow(0 0 24px currentColor);
+}
+
+.snake-mega-glow {
+  filter: drop-shadow(0 0 12px currentColor) drop-shadow(0 0 24px currentColor) drop-shadow(0 0 36px currentColor) drop-shadow(0 0 48px currentColor);
+}
+
+/* Thin text styling for consistent typography */
+.text-thin {
+  font-weight: 300;
+  color: #d1d5db; /* text-gray-300 equivalent */
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.text-thin-light {
+  font-weight: 200;
+  color: #9ca3af; /* text-gray-400 equivalent */
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Global thin text for paragraphs and secondary text */
+p, .text-secondary, .text-white\/70, .text-white\/80 {
+  font-weight: 300;
+  color: #d1d5db;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Apply thin text to common text elements */
+.text-lg, .text-xl, .text-2xl {
+  font-weight: 300;
+}
+
+/* Override for headings to maintain hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Button text should remain semibold */
+button, .font-semibold {
+  font-weight: 600;
+}
+
+/* Enhanced smooth scroll utilities */
+.smooth-scroll-container {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scroll for navigation links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Custom smooth scroll animation */
+@keyframes smoothScroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Apply smooth scroll to all scrollable areas */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+/* Mobile smooth scroll optimization */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+}
