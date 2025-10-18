@@ -81,8 +81,8 @@ const Services = () => {
       [
         {
           id: "01",
-          tag: "IDEATION",
-          title: "Web Development",
+          tag: "WEBSITE DESIGN",
+          title: "Website Design",
           description:
             "We create stunning, high-performance websites and web applications that drive real business results using cutting-edge technologies.",
           side: "left",
@@ -96,7 +96,7 @@ const Services = () => {
         },
         {
           id: "02",
-          tag: "SCRIPTING",
+          tag: "CONTENT WRITING",
           title: "Brand Design",
           description:
             "Complete brand identity systems that capture your essence and resonate with your target audience through strategic design.",
@@ -105,7 +105,7 @@ const Services = () => {
         },
         {
           id: "03",
-          tag: "EDITING",
+          tag: "PRODUCTION",
           title: "Digital Marketing",
           description:
             "Strategic marketing campaigns that drive growth and build lasting relationships with your customers across all digital channels.",
@@ -114,8 +114,8 @@ const Services = () => {
         },
         {
           id: "04",
-          tag: "THUMBNAIL",
-          title: "Video Production",
+          tag: "EDITING",
+          title: "EDITING",
           description:
             "Compelling video content that tells your story and engages your audience across all platforms with professional quality.",
           side: "right",

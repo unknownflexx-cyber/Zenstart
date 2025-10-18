@@ -19,6 +19,7 @@ const VSL = () => {
 
   // Calculate snake movement based on scroll position
   const snakePosition = (scrollY * 0.5) % 360;
+  const edgeRingBackground = `conic-gradient(from ${snakePosition}deg, transparent 0deg, transparent 330deg, rgba(255,140,66,1) 340deg, rgba(255,170,0,1) 350deg, transparent 360deg), conic-gradient(from ${snakePosition + 180}deg, transparent 0deg, transparent 150deg, rgba(66,212,255,1) 160deg, rgba(0,170,255,1) 170deg, transparent 180deg)`;
 
   return (
     <section ref={ref} className="py-24 relative overflow-hidden">
@@ -125,71 +126,9 @@ const VSL = () => {
             />
             
             {/* Main Video Container */}
-            <div className="relative bg-gray-900/98 dark:bg-black/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl">
-              {/* Snake Glow Border Effects */}
-              {/* Orange Snake Beam */}
-              <motion.div 
-                className="absolute -inset-1 rounded-2xl"
-                style={{
-                  background: `conic-gradient(from ${snakePosition}deg, 
-                    transparent 0deg,
-                    transparent 340deg,
-                    rgba(255, 106, 0, 0.8) 350deg,
-                    rgba(255, 140, 66, 1) 355deg,
-                    rgba(255, 170, 0, 0.9) 360deg,
-                    rgba(255, 106, 0, 0.8) 5deg,
-                    rgba(255, 69, 0, 0.6) 10deg,
-                    transparent 20deg,
-                    transparent 360deg)`,
-                  filter: 'blur(8px)',
-                  boxShadow: '0 0 20px rgba(255, 106, 0, 0.6), inset 0 0 20px rgba(255, 106, 0, 0.3)',
-                }}
-              />
-              
-              {/* Blue Snake Beam */}
-              <motion.div 
-                className="absolute -inset-1 rounded-2xl"
-                style={{
-                  background: `conic-gradient(from ${snakePosition + 180}deg, 
-                    transparent 0deg,
-                    transparent 160deg,
-                    rgba(0, 207, 255, 0.8) 170deg,
-                    rgba(66, 212, 255, 1) 175deg,
-                    rgba(0, 170, 255, 0.9) 180deg,
-                    rgba(0, 207, 255, 0.8) 185deg,
-                    rgba(38, 198, 218, 0.6) 190deg,
-                    transparent 200deg,
-                    transparent 360deg)`,
-                  filter: 'blur(8px)',
-                  boxShadow: '0 0 20px rgba(0, 207, 255, 0.6), inset 0 0 20px rgba(0, 207, 255, 0.3)',
-                }}
-              />
-              
-              {/* Outer Glow Layer */}
-              <motion.div 
-                className="absolute -inset-2 rounded-2xl"
-                style={{
-                  background: `conic-gradient(from ${snakePosition}deg, 
-                    transparent 0deg,
-                    transparent 345deg,
-                    rgba(255, 106, 0, 0.4) 355deg,
-                    rgba(255, 106, 0, 0.2) 5deg,
-                    transparent 15deg,
-                    transparent 165deg,
-                    rgba(0, 207, 255, 0.4) 175deg,
-                    rgba(0, 207, 255, 0.2) 185deg,
-                    transparent 195deg,
-                    transparent 360deg)`,
-                  filter: 'blur(12px)',
-                  boxShadow: '0 0 30px rgba(255, 106, 0, 0.3), 0 0 30px rgba(0, 207, 255, 0.3)',
-                }}
-              />
-              
-              {/* Inner Border */}
-              <div className="absolute inset-0 rounded-2xl border border-white/10" />
-              
+            <div className="relative bg-gray-900/98 dark:bg-black/95 backdrop-blur-sm rounded-2xl overflow-visible shadow-2xl">
               {/* Video Aspect Ratio Container */}
-              <div className="aspect-video relative">
+              <div className="aspect-video relative overflow-hidden rounded-2xl">
                 {/* Video Thumbnail/Placeholder */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                   <img
@@ -275,6 +214,48 @@ const VSL = () => {
                     />
                   </div>
                 </div>
+              </div>
+              
+              {/* TOP LAYER: Edge Glow Snake - ABOVE all video content */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl" style={{ zIndex: 50 }}>
+                <svg className="w-full h-full" viewBox="0 0 100 56" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="vslEdgeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#A1BFFF" />
+                      <stop offset="50%" stopColor="#FFFFFF" />
+                      <stop offset="100%" stopColor="#A649D2" />
+                    </linearGradient>
+                    {/* Pure blur filters (no SourceGraphic merge) for soft glow */}
+                    <filter id="vslHaloBig" x="-150%" y="-150%" width="400%" height="400%">
+                      <feGaussianBlur stdDeviation="14" />
+                    </filter>
+                    <filter id="vslHaloSmall" x="-120%" y="-120%" width="340%" height="340%">
+                      <feGaussianBlur stdDeviation="6" />
+                    </filter>
+                  </defs>
+                  {/* Big outer halo */}
+                  <motion.rect
+                    x="1" y="1" width="98" height="54" rx="8"
+                    fill="none" stroke="url(#vslEdgeGradient)" strokeWidth="14"
+                    strokeLinecap="round" pathLength={1}
+                    strokeDasharray="0.22 0.78"
+                    strokeDashoffset={-(snakePosition / 360)}
+                    opacity={0.55}
+                    filter="url(#vslHaloBig)"
+                    style={{ mixBlendMode: 'screen' }}
+                  />
+                  {/* Inner halo (tighter) */}
+                  <motion.rect
+                    x="1" y="1" width="98" height="54" rx="8"
+                    fill="none" stroke="url(#vslEdgeGradient)" strokeWidth="7"
+                    strokeLinecap="round" pathLength={1}
+                    strokeDasharray="0.22 0.78"
+                    strokeDashoffset={-(snakePosition / 360)}
+                    opacity={0.85}
+                    filter="url(#vslHaloSmall)"
+                    style={{ mixBlendMode: 'screen' }}
+                  />
+                </svg>
               </div>
             </div>
           </div>
