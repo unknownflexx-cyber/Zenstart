@@ -114,18 +114,18 @@ const CTA = () => {
                 <span className="text-sm font-medium">100% Satisfaction Guarantee</span>
               </div>
             </motion.div>
-            <div ref={calRef} className={`mt-6 transition-[max-height,opacity] duration-500 ease-out ${isOpen ? 'opacity-100' : 'opacity-0'}`} style={{ maxHeight: isOpen ? 900 : 0 }}>
-              {isOpen && (
-                <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-2 overflow-hidden">
+            {isOpen && (
+              <div ref={calRef} className="mt-6">
+                <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-2">
                   <Cal
                     calLink="zenstart/30min"
                     config={{ layout: 'month_view' }}
-                    style={{ width: '100%', maxWidth: '100%', height: 'min(900px, 80vh)' }}
+                    style={{ width: '100%', maxWidth: '100%', height: 'auto', minHeight: '760px' }}
                     className="w-full max-w-full"
                   />
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
           </motion.div>
         </motion.div>
