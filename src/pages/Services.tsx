@@ -251,7 +251,7 @@ const Services: React.FC = () => {
   const steps = [
     {
       id: "01",
-      tag: "IDEATION",
+      tag: "WEB DESIGN",
       title: "Web Development",
       desc:
         "We build responsive, modern websites and web applications tailored to your business needs using cutting-edge technologies.",
@@ -274,7 +274,7 @@ const Services: React.FC = () => {
     },
     {
       id: "02",
-      tag: "SCRIPTING",
+      tag: "SCRIPT",
       title: "Content & Script Writing",
       desc:
         "We create compelling content and scripts that engage your audience and drive conversions using proven frameworks.",
@@ -297,7 +297,7 @@ const Services: React.FC = () => {
     },
     {
       id: "03",
-      tag: "EDITING",
+      tag: "PRODUCTION",
       title: "Pre Production & Setup (Remote)",
       desc:
         "We handle all pre-production planning and remote setup to ensure smooth video production workflows.",
@@ -320,7 +320,7 @@ const Services: React.FC = () => {
     },
     {
       id: "04",
-      tag: "THUMBNAIL",
+      tag: "EDITING",
       title: "Production & Editing ",
       desc:
         "We produce high-quality video content and handle all editing processes to create professional, engaging videos.",
