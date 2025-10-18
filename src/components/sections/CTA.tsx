@@ -116,12 +116,12 @@ const CTA = () => {
             </motion.div>
             <div ref={calRef} className={`mt-6 transition-[max-height,opacity] duration-500 ease-out ${isOpen ? 'opacity-100' : 'opacity-0'}`} style={{ maxHeight: isOpen ? 900 : 0 }}>
               {isOpen && (
-                <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-2">
+                <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-2 overflow-hidden">
                   <Cal
                     calLink="zenstart/30min"
                     config={{ layout: 'month_view' }}
-                    style={{ width: '100%', height: '760px' }}
-                    className="w-full"
+                    style={{ width: '100%', maxWidth: '100%', height: 'min(900px, 80vh)' }}
+                    className="w-full max-w-full"
                   />
                 </div>
               )}
