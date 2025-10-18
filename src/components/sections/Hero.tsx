@@ -83,6 +83,7 @@ const Hero = () => {
     transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
   >
     <motion.button
+      onClick={() => { window.location.href = `${import.meta.env.BASE_URL}#book`; }}
       className="px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] text-gray-900 font-semibold text-sm sm:text-base md:text-lg rounded-full hover:from-[#8FA9FF] hover:via-gray-100 hover:to-[#9440C2] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(161,191,255,0.6)] hover:shadow-[0_0_60px_rgba(166,73,210,0.4)] relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#A1BFFF] before:via-white before:to-[#A649D2] before:rounded-full before:opacity-0 before:blur-sm before:transition-opacity before:duration-300 hover:before:opacity-70"
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}

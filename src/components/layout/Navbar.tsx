@@ -77,6 +77,7 @@ const Navbar = () => {
 
           {/* Get Started Button */}
           <motion.button
+            onClick={() => (window.location.href = `${import.meta.env.BASE_URL}#book`)}
             className="hidden lg:inline-flex px-6 py-2 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] text-gray-900 font-medium hover:from-[#8FA9FF] hover:via-gray-100 hover:to-[#9440C2] transition-all duration-200 rounded-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -87,6 +88,10 @@ const Navbar = () => {
           {/* Mobile menu button + CTA */}
           <div className="lg:hidden flex items-center space-x-3">
             <motion.button
+              onClick={() => {
+                setIsOpen(false);
+                window.location.href = `${import.meta.env.BASE_URL}#book`;
+              }}
               className="px-3 py-1.5 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] text-gray-900 text-sm font-medium rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -128,7 +133,7 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] text-gray-900 font-medium rounded-lg">
+              <button onClick={() => { setIsOpen(false); window.location.href = `${import.meta.env.BASE_URL}#book`; }} className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] text-gray-900 font-medium rounded-lg">
                 Get Started
               </button>
             </div>

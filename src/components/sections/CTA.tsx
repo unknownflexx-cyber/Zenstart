@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, Calendar, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Cal, { getCalApi } from '@calcom/embed-react';
 
 const CTA = () => {
   const [ref, inView] = useInView({
@@ -10,8 +11,36 @@ const CTA = () => {
     threshold: 0.1,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  const calRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: '30min' });
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+    })();
+  }, []);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+    requestAnimationFrame(() => {
+      calRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+
+  // Auto-open when URL has #book
+  useEffect(() => {
+    if (location.hash === '#book') {
+      setIsOpen(true);
+      requestAnimationFrame(() => {
+        calRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  }, [location]);
+
   return (
-    <section ref={ref} className="py-24 relative overflow-hidden bg-black">
+    <section ref={ref} id="book" className="py-24 relative overflow-hidden bg-black">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -51,8 +80,9 @@ const CTA = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 pb-10">
-              <Link to="/contact">
+              {!isOpen && (
                 <motion.button
+                  onClick={handleOpen}
                   className="group px-8 py-4 bg-gradient-to-r from-[#A1BFFF] via-white to-[#A649D2] rounded-full text-gray-900 font-semibold text-lg flex items-center space-x-2 hover:from-[#8FA9FF] hover:via-gray-100 hover:to-[#9440C2] transition-all duration-300 shadow-xl"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -61,7 +91,7 @@ const CTA = () => {
                   <span>Book Discovery Call</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </motion.button>
-              </Link>
+              )}
             </div>
 
             {/* Trust Indicators */}
@@ -84,6 +114,19 @@ const CTA = () => {
                 <span className="text-sm font-medium">100% Satisfaction Guarantee</span>
               </div>
             </motion.div>
+            <div ref={calRef} className={`mt-6 transition-[max-height,opacity] duration-500 ease-out ${isOpen ? 'opacity-100' : 'opacity-0'}`} style={{ maxHeight: isOpen ? 900 : 0 }}>
+              {isOpen && (
+                <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-xl p-2">
+                  <Cal
+                    calLink="zenstart/30min"
+                    config={{ layout: 'month_view' }}
+                    style={{ width: '100%', height: '760px' }}
+                    className="w-full"
+                  />
+                </div>
+              )}
+            </div>
+
           </motion.div>
         </motion.div>
       </div>
